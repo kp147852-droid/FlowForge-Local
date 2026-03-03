@@ -105,3 +105,10 @@ Open [http://127.0.0.1:8017](http://127.0.0.1:8017).
 ## License
 
 MIT. See [LICENSE](./LICENSE).
+
+## Employer Quick Links
+- Project brief: `docs/PROJECT_BRIEF.md`
+- Resume bullets: `docs/RESUME_BULLETS.md`
+- Security policy: `SECURITY.md`
+- Contribution guide: `CONTRIBUTING.md`
+- Code of conduct: `CODE_OF_CONDUCT.md`
