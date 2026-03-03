@@ -13,6 +13,8 @@ This project demonstrates production-relevant skills for business analyst, data 
 - building reliable data/process pipelines with retries, observability, and safety controls
 - designing full-stack products with clear UX and measurable outcomes
 
+![FlowForge Local preview](./assets/flowforge-preview.svg)
+
 ## Why It Matters
 
 Manual file handling is expensive: sorting invoices, extracting text, renaming exports, and tracking failures are repetitive and error-prone.
@@ -85,6 +87,12 @@ Open [http://127.0.0.1:8017](http://127.0.0.1:8017).
 
 - Case study: [docs/CASE_STUDY.md](./docs/CASE_STUDY.md)
 - Resume-ready bullets: [docs/RESUME_BULLETS.md](./docs/RESUME_BULLETS.md)
+- Profile blurbs and tags: [docs/PROFILE_FEATURED_PROJECT_BLURB.md](./docs/PROFILE_FEATURED_PROJECT_BLURB.md)
+
+## Demo Media
+
+- UI preview image: [assets/flowforge-preview.svg](./assets/flowforge-preview.svg)
+- Recommended next step: add a 30-60s screen capture GIF showing template apply, dry-run execution, and metrics refresh.
 
 ## Project Roadmap
 

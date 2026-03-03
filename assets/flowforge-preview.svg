@@ -1,0 +1,52 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ECF8F0"/>
+      <stop offset="1" stop-color="#F7F8F2"/>
+    </linearGradient>
+    <linearGradient id="hero" x1="220" y1="70" x2="1060" y2="190" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E4F8EC"/>
+      <stop offset="1" stop-color="#F6FBF8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+
+  <rect x="220" y="70" width="840" height="130" rx="20" fill="url(#hero)" stroke="#D1E5D7"/>
+  <text x="255" y="128" font-family="Arial, sans-serif" font-size="38" font-weight="700" fill="#123D2A">FlowForge Local</text>
+  <text x="255" y="166" font-family="Arial, sans-serif" font-size="18" fill="#3B5C4C">Local-first workflow automation with rules, scheduling, logs, and safety controls</text>
+
+  <rect x="220" y="226" width="410" height="420" rx="16" fill="#FFFFFF" stroke="#D7E1D6"/>
+  <text x="248" y="264" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#1A3024">Rule Setup</text>
+  <rect x="248" y="284" width="354" height="36" rx="8" fill="#F7FAF6" stroke="#CFDCCF"/>
+  <text x="260" y="307" font-family="Arial, sans-serif" font-size="14" fill="#51685B">Name: Invoice Organizer</text>
+  <rect x="248" y="332" width="354" height="36" rx="8" fill="#F7FAF6" stroke="#CFDCCF"/>
+  <text x="260" y="355" font-family="Arial, sans-serif" font-size="14" fill="#51685B">Pattern: *.pdf | Action: move_to_folder</text>
+  <rect x="248" y="380" width="354" height="36" rx="8" fill="#F7FAF6" stroke="#CFDCCF"/>
+  <text x="260" y="403" font-family="Arial, sans-serif" font-size="14" fill="#51685B">Conditions: dedupe + filename contains</text>
+  <rect x="248" y="440" width="170" height="40" rx="10" fill="#0E7D57"/>
+  <text x="282" y="465" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">Create Rule</text>
+
+  <rect x="650" y="226" width="410" height="200" rx="16" fill="#FFFFFF" stroke="#D7E1D6"/>
+  <text x="678" y="264" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#1A3024">Metrics</text>
+  <rect x="678" y="282" width="86" height="112" rx="12" fill="#F8FBF7" stroke="#D6E3D5"/>
+  <text x="697" y="316" font-family="Arial, sans-serif" font-size="13" fill="#546A5D">Total</text>
+  <text x="702" y="354" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#153E2B">42</text>
+  <rect x="780" y="282" width="86" height="112" rx="12" fill="#F8FBF7" stroke="#D6E3D5"/>
+  <text x="795" y="316" font-family="Arial, sans-serif" font-size="13" fill="#546A5D">Success</text>
+  <text x="806" y="354" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#153E2B">38</text>
+  <rect x="882" y="282" width="86" height="112" rx="12" fill="#F8FBF7" stroke="#D6E3D5"/>
+  <text x="905" y="316" font-family="Arial, sans-serif" font-size="13" fill="#546A5D">Failed</text>
+  <text x="914" y="354" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#9E2A2A">4</text>
+  <rect x="984" y="282" width="48" height="112" rx="12" fill="#F8FBF7" stroke="#D6E3D5"/>
+  <text x="991" y="316" font-family="Arial, sans-serif" font-size="13" fill="#546A5D">Dry</text>
+  <text x="997" y="354" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#153E2B">9</text>
+
+  <rect x="650" y="446" width="410" height="200" rx="16" fill="#FFFFFF" stroke="#D7E1D6"/>
+  <text x="678" y="484" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#1A3024">Recent Jobs</text>
+  <rect x="678" y="500" width="354" height="34" rx="8" fill="#F8FBF7" stroke="#D6E3D5"/>
+  <text x="690" y="522" font-family="Arial, sans-serif" font-size="13" fill="#4F675A">#104 success  |  invoice_8831.pdf  |  move_to_folder</text>
+  <rect x="678" y="542" width="354" height="34" rx="8" fill="#F8FBF7" stroke="#D6E3D5"/>
+  <text x="690" y="564" font-family="Arial, sans-serif" font-size="13" fill="#4F675A">#103 dry-run  |  q4_report.pdf     |  extract_pdf_text</text>
+  <rect x="678" y="584" width="354" height="34" rx="8" fill="#F8FBF7" stroke="#D6E3D5"/>
+  <text x="690" y="606" font-family="Arial, sans-serif" font-size="13" fill="#4F675A">#102 failed   |  scan.jpg          |  compress_image</text>
+</svg>
