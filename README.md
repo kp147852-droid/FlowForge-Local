@@ -1,18 +1,17 @@
-# Local-First Workflow Automator
+# FlowForge Local
 
-A local automation app that watches folders and runs file workflows based on rules.
+FlowForge Local is a local-first workflow automator that watches folders, applies file rules, and keeps transparent execution history.
 
-## Features
+## Included features
 
-- Create rules from a browser UI
-- Watch local folders for new files
-- Actions:
-  - copy to folder
-  - move to folder
-  - rename with timestamp
-  - summarize text files
-- Persist rules/jobs in local SQLite (`data/automator.db`)
-- View execution history
+- File actions: copy, move, timestamp rename, summarize text, extract PDF text, merge PDFs, image convert, image compress
+- Rule conditions: file size, filename include/exclude, extension allow-list, weekday and hour window, duplicate detection
+- Safe controls: dry-run mode, undo move/rename/copy, quarantine-on-failure
+- Scheduling and triggers: interval scheduler, weekdays-only mode, downstream rule chains
+- Integrations: webhook notifications and CSV run logs
+- Observability: job logs, attempt/retry with backoff, metrics endpoint and UI cards
+- Rule templates: preset starter templates
+- Rule portability: JSON export/import
 
 ## Run
 
@@ -21,12 +20,27 @@ cd /Users/kyleparker/Documents/project\ 3
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r backend/requirements.txt
-uvicorn backend.app.main:app --reload --port 8000
+uvicorn backend.app.main:app --port 8017
 ```
 
-Open [http://localhost:8000](http://localhost:8000).
+Open [http://127.0.0.1:8017](http://127.0.0.1:8017).
+
+## API quick list
+
+- `GET /api/templates`
+- `GET /api/rules`
+- `POST /api/rules`
+- `POST /api/rules/import`
+- `GET /api/rules/export`
+- `PATCH /api/rules/{rule_id}`
+- `POST /api/rules/{rule_id}/run` (`{"file_path": "...", "dry_run": true}`)
+- `GET /api/jobs`
+- `GET /api/jobs/{job_id}/logs`
+- `POST /api/jobs/{job_id}/undo`
+- `GET /api/metrics`
 
 ## Notes
 
-- Use absolute paths for `source_dir` and manual run file paths.
-- If a watched source directory does not exist, watcher registration is skipped until you create it and restart.
+- Paths should be absolute for predictable behavior.
+- Image and PDF actions require the Python packages in `backend/requirements.txt`.
+- Scheduler checks rules every 20 seconds and runs those whose interval has elapsed.

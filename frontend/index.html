@@ -3,18 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Local Workflow Automator</title>
+    <title>FlowForge Local</title>
     <link rel="stylesheet" href="/static/styles.css" />
   </head>
   <body>
     <main class="layout">
-      <header>
-        <h1>Local Workflow Automator</h1>
-        <p>Create rules that react to files in local folders.</p>
+      <header class="hero card">
+        <h1>FlowForge Local</h1>
+        <p>
+          FlowForge Local is a local-first workflow automator that watches your folders, applies file rules,
+          and keeps transparent execution history without sending your data to the cloud.
+        </p>
       </header>
 
       <section class="card">
-        <h2>New Rule</h2>
+        <h2>Templates + Rule Setup</h2>
+        <div class="row">
+          <select id="template-select">
+            <option value="">Select template</option>
+          </select>
+          <button id="apply-template" class="secondary" type="button">Apply Template</button>
+          <button id="export-rules" class="secondary" type="button">Export Rules JSON</button>
+          <label class="inline-file">Import Rules JSON<input type="file" id="import-file" accept="application/json" /></label>
+        </div>
+
         <form id="rule-form">
           <div class="grid">
             <label>Name<input name="name" required maxlength="80" placeholder="Invoice Organizer" /></label>
@@ -27,15 +39,56 @@
                 <option value="move_to_folder">Move to folder</option>
                 <option value="rename_with_timestamp">Rename with timestamp</option>
                 <option value="summarize_text_file">Summarize text file</option>
+                <option value="extract_pdf_text">Extract PDF text</option>
+                <option value="merge_pdfs_in_folder">Merge PDFs in folder</option>
+                <option value="convert_image">Convert image format</option>
+                <option value="compress_image">Compress image</option>
+                <option value="notify_webhook">Notify webhook</option>
+                <option value="create_email_draft">Create email draft</option>
               </select>
             </label>
+
             <label id="target-wrap">Target Folder<input name="target_dir" placeholder="/Users/you/Archive" /></label>
             <label id="max-lines-wrap" class="hidden">Max Lines<input name="max_lines" type="number" min="1" value="8" /></label>
             <label id="prefix-wrap" class="hidden">Prefix<input name="prefix" placeholder="processed_" /></label>
             <label id="suffix-wrap" class="hidden">Suffix<input name="suffix" placeholder="_v2" /></label>
+            <label id="pdf-name-wrap" class="hidden">Merged PDF Name<input name="output_name" placeholder="merged.pdf" /></label>
+            <label id="img-format-wrap" class="hidden">Image Format<input name="format" placeholder="png" /></label>
+            <label id="img-quality-wrap" class="hidden">Image Quality<input name="quality" type="number" min="10" max="95" value="70" /></label>
+            <label id="webhook-wrap" class="hidden">Webhook URL<input name="webhook_url" placeholder="https://..." /></label>
+            <label id="email-wrap" class="hidden">Draft To Email<input name="to_email" placeholder="ops@example.com" /></label>
+            <label id="draft-dir-wrap" class="hidden">Draft Folder<input name="drafts_dir" placeholder="/Users/you/Documents/Drafts" /></label>
+
+            <label>Min size KB<input name="min_size_kb" type="number" min="0" step="1" value="0" /></label>
+            <label>Max size KB<input name="max_size_kb" type="number" min="0" step="1" value="0" /></label>
+            <label>Filename contains<input name="filename_contains" placeholder="invoice" /></label>
+            <label>Filename excludes<input name="filename_excludes" placeholder="draft" /></label>
+            <label>Allowed extensions (csv)<input name="allowed_extensions" placeholder="pdf,txt,jpg" /></label>
+            <label>Allowed weekdays (csv)<input name="allowed_weekdays" placeholder="mon,tue,wed" /></label>
+            <label>Hour start<input name="allowed_hour_start" type="number" min="0" max="23" value="0" /></label>
+            <label>Hour end<input name="allowed_hour_end" type="number" min="0" max="23" value="23" /></label>
+            <label>Dedupe<input name="dedupe" type="checkbox" checked /></label>
+
+            <label>Retries<input name="max_retries" type="number" min="1" value="1" /></label>
+            <label>Backoff sec<input name="backoff_seconds" type="number" min="0" value="1" /></label>
+            <label>Quarantine folder<input name="quarantine_dir" placeholder="/Users/you/Quarantine" /></label>
+            <label>Downstream rule IDs (csv)<input name="downstream_rule_ids" placeholder="2,3" /></label>
+
+            <label>Schedule enabled<input name="schedule_enabled" type="checkbox" /></label>
+            <label>Schedule interval minutes<input name="interval_minutes" type="number" min="1" value="60" /></label>
+            <label>Weekdays only<input name="weekdays_only" type="checkbox" /></label>
+            <label>Schedule dry-run<input name="schedule_dry_run" type="checkbox" /></label>
+
+            <label>Integration webhook<input name="integration_webhook" placeholder="https://hooks.slack..." /></label>
+            <label>Integration CSV log<input name="append_csv" placeholder="/Users/you/Documents/flowforge_log.csv" /></label>
           </div>
           <button type="submit">Create Rule</button>
         </form>
+      </section>
+
+      <section class="card">
+        <h2>Metrics</h2>
+        <div id="metrics">No metrics yet.</div>
       </section>
 
       <section class="card">
@@ -45,7 +98,10 @@
 
       <section class="card">
         <h2>Jobs</h2>
-        <button id="refresh-jobs">Refresh Jobs</button>
+        <div class="row">
+          <button id="refresh-jobs" type="button">Refresh Jobs</button>
+          <button id="refresh-metrics" class="secondary" type="button">Refresh Metrics</button>
+        </div>
         <div id="jobs"></div>
       </section>
     </main>
