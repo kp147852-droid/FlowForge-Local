@@ -13,6 +13,7 @@ This project demonstrates production-relevant skills for business analyst, data 
 - building reliable data/process pipelines with retries, observability, and safety controls
 - designing full-stack products with clear UX and measurable outcomes
 
+![FlowForge Local demo](./assets/demo.gif)
 ![FlowForge Local preview](./assets/flowforge-preview.svg)
 
 ## Why It Matters
@@ -91,8 +92,8 @@ Open [http://127.0.0.1:8017](http://127.0.0.1:8017).
 
 ## Demo Media
 
+- Animated demo: [assets/demo.gif](./assets/demo.gif)
 - UI preview image: [assets/flowforge-preview.svg](./assets/flowforge-preview.svg)
-- Recommended next step: add a 30-60s screen capture GIF showing template apply, dry-run execution, and metrics refresh.
 
 ## Project Roadmap
 
