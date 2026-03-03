@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Workflow Automator</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <header>
+        <h1>Local Workflow Automator</h1>
+        <p>Create rules that react to files in local folders.</p>
+      </header>
+
+      <section class="card">
+        <h2>New Rule</h2>
+        <form id="rule-form">
+          <div class="grid">
+            <label>Name<input name="name" required maxlength="80" placeholder="Invoice Organizer" /></label>
+            <label>Source Folder<input name="source_dir" required placeholder="/Users/you/Downloads" /></label>
+            <label>Pattern<input name="pattern" required value="*" placeholder="*.pdf" /></label>
+            <label>
+              Action
+              <select name="action" id="action-select">
+                <option value="copy_to_folder">Copy to folder</option>
+                <option value="move_to_folder">Move to folder</option>
+                <option value="rename_with_timestamp">Rename with timestamp</option>
+                <option value="summarize_text_file">Summarize text file</option>
+              </select>
+            </label>
+            <label id="target-wrap">Target Folder<input name="target_dir" placeholder="/Users/you/Archive" /></label>
+            <label id="max-lines-wrap" class="hidden">Max Lines<input name="max_lines" type="number" min="1" value="8" /></label>
+            <label id="prefix-wrap" class="hidden">Prefix<input name="prefix" placeholder="processed_" /></label>
+            <label id="suffix-wrap" class="hidden">Suffix<input name="suffix" placeholder="_v2" /></label>
+          </div>
+          <button type="submit">Create Rule</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Rules</h2>
+        <div id="rules"></div>
+      </section>
+
+      <section class="card">
+        <h2>Jobs</h2>
+        <button id="refresh-jobs">Refresh Jobs</button>
+        <div id="jobs"></div>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
